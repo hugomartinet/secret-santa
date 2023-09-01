@@ -9,10 +9,6 @@
     "skipLibCheck": true,
     "strict": true,
     "esModuleInterop": true,
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"]
-    },
     "outDir": "build"
   },
   "include": ["src"]

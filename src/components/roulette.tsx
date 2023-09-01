@@ -7,7 +7,8 @@ export function Roulette() {
   const [mustSpin, setMustSpin] = useState(false);
 
   const [options] = useRouletteOptions();
-  const prizeNumber = useMemo(() => Math.floor(Math.random() * (options?.length ?? 0)), [mustSpin]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const prizeNumber = useMemo(() => Math.floor(Math.random() * (options?.length ?? 0)), [options?.length, mustSpin]);
 
   return (
     <>

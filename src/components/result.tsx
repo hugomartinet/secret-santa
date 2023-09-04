@@ -1,9 +1,9 @@
 import { Box, Collapse, Text } from '@chakra-ui/react';
 
-import { useRouletteContext } from '../context/roulette-context';
+import { useWheelContext } from '../context/wheel-context';
 
 export function Result() {
-  const { result } = useRouletteContext();
+  const { result } = useWheelContext();
 
   return (
     <Collapse in={!!result} style={{ width: '100%' }}>

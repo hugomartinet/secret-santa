@@ -1,25 +1,25 @@
 import { PropsWithChildren, createContext, useContext, useState } from 'react';
 
-interface RouletteContextValue {
+interface WheelContextValue {
   isSpinning: boolean;
   setIsSpinning: (value: boolean) => void;
   result: string | null;
   setResult: (value: string | null) => void;
 }
 
-const RouletteContext = createContext<RouletteContextValue>({
+const WheelContext = createContext<WheelContextValue>({
   isSpinning: false,
   setIsSpinning: () => {},
   result: null,
   setResult: () => {},
 });
 
-export function useRouletteContext() {
-  return useContext(RouletteContext);
+export function useWheelContext() {
+  return useContext(WheelContext);
 }
 
-export function RouletteContextProvider(props: PropsWithChildren) {
+export function WheelContextProvider(props: PropsWithChildren) {
   const [isSpinning, setIsSpinning] = useState(false);
   const [result, setResult] = useState<string | null>(null);
-  return <RouletteContext.Provider {...props} value={{ isSpinning, setIsSpinning, result, setResult }} />;
+  return <WheelContext.Provider {...props} value={{ isSpinning, setIsSpinning, result, setResult }} />;
 }

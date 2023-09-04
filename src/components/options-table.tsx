@@ -1,7 +1,7 @@
 import { DeleteIcon } from '@chakra-ui/icons';
 import { IconButton, Table, TableContainer, Tbody, Td, Tr } from '@chakra-ui/react';
 
-import { useRouletteContext } from '../context/roulette-context';
+import { useWheelContext } from '../context/wheel-context';
 
 import { OptionInput } from './option-input';
 
@@ -12,7 +12,7 @@ interface OptionsTableProps {
 }
 
 export function OptionsTable({ options, addOption, removeOption }: OptionsTableProps) {
-  const { isSpinning } = useRouletteContext();
+  const { isSpinning } = useWheelContext();
 
   return (
     <TableContainer overflowY="scroll" borderWidth={1} boxShadow="lg" rounded="lg">

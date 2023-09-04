@@ -1,16 +1,16 @@
 import { Button, Center, Text, useToken } from '@chakra-ui/react';
 import { useCallback, useState } from 'react';
-import { Wheel } from 'react-custom-roulette';
+import { Wheel as ReactRoulette } from 'react-custom-roulette';
 
-import { useRouletteContext } from '../context/roulette-context';
+import { useWheelContext } from '../context/wheel-context';
 
 import { Result } from './result';
 
-interface RouletteProps {
+interface WheelProps {
   options: string[];
 }
 
-export function Roulette({ options }: RouletteProps) {
+export function Wheel({ options }: WheelProps) {
   const colors = useToken('colors', [
     'red.400',
     'orange.400',
@@ -23,7 +23,7 @@ export function Roulette({ options }: RouletteProps) {
     'pink.400',
   ]);
 
-  const { isSpinning, setIsSpinning, setResult } = useRouletteContext();
+  const { isSpinning, setIsSpinning, setResult } = useWheelContext();
   const [resultIndex, setResultIndex] = useState(0);
 
   const onSpin = useCallback(() => {
@@ -41,7 +41,7 @@ export function Roulette({ options }: RouletteProps) {
     <Center flex={1} flexDir="column">
       {options.length > 0 ? (
         <>
-          <Wheel
+          <ReactRoulette
             mustStartSpinning={isSpinning}
             prizeNumber={resultIndex}
             data={options.map(option => ({ option }))}

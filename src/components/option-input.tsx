@@ -1,14 +1,14 @@
 import { Button, HStack, Input } from '@chakra-ui/react';
 import { useCallback, useEffect, useState } from 'react';
 
-import { useRouletteContext } from '../context/roulette-context';
+import { useWheelContext } from '../context/wheel-context';
 
 interface OptionInputProps {
   addOption: (value: string) => void;
 }
 
 export function OptionInput({ addOption }: OptionInputProps) {
-  const { isSpinning } = useRouletteContext();
+  const { isSpinning } = useWheelContext();
 
   const [value, setValue] = useState('');
 

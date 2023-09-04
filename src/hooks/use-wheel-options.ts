@@ -1,8 +1,8 @@
 import { useCallback } from 'react';
 import { useLocalStorage } from 'react-use';
 
-export function useRouletteOptions() {
-  const [options, setOptions] = useLocalStorage<string[]>('roulette-options', []);
+export function useWheelOptions() {
+  const [options, setOptions] = useLocalStorage<string[]>('wheel-options', []);
 
   const addOption = useCallback((value: string) => setOptions([...(options ?? []), value]), [options, setOptions]);
 

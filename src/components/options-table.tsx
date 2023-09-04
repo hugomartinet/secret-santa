@@ -15,8 +15,8 @@ export function OptionsTable({ options, addOption, removeOption }: OptionsTableP
   const { isSpinning } = useRouletteContext();
 
   return (
-    <TableContainer overflowY="scroll" m={4} borderWidth={1} boxShadow="lg" rounded="lg">
-      <Table minW={400}>
+    <TableContainer overflowY="scroll" borderWidth={1} boxShadow="lg" rounded="lg">
+      <Table minW={{ base: 'none', lg: 400 }}>
         <Tbody>
           {options?.map(option => (
             <Tr key={option}>

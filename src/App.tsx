@@ -12,7 +12,7 @@ function App() {
   return (
     <ChakraProvider>
       <RouletteContextProvider>
-        <Stack direction="row" w="100vw" h="100vh">
+        <Stack spacing={4} p={4} direction={{ base: 'column', lg: 'row' }} h={{ base: '100%', lg: '100vh' }}>
           <Roulette options={options} />
           <OptionsTable addOption={addOption} options={options} removeOption={removeOption} />
         </Stack>

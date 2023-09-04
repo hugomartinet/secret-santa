@@ -50,7 +50,7 @@ export function Roulette({ options }: RouletteProps) {
             outerBorderWidth={4}
             radiusLineWidth={2}
           />
-          <Button mt={8} size="lg" onClick={onSpin} isDisabled={isSpinning}>
+          <Button mt={{ base: 4, lg: 8 }} size="lg" onClick={onSpin} isDisabled={isSpinning}>
             Spin that wheel!
           </Button>
 

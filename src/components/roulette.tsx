@@ -1,17 +1,19 @@
+import { Box } from '@chakra-ui/react';
 import { useMemo, useState } from 'react';
 import { Wheel } from 'react-custom-roulette';
 
-import { useRouletteOptions } from '../hooks/use-roulette-options';
+interface RouletteProps {
+  options: string[];
+}
 
-export function Roulette() {
+export function Roulette({ options }: RouletteProps) {
   const [mustSpin, setMustSpin] = useState(false);
 
-  const [options] = useRouletteOptions();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const prizeNumber = useMemo(() => Math.floor(Math.random() * (options?.length ?? 0)), [options?.length, mustSpin]);
 
   return (
-    <>
+    <Box flex={1}>
       <Wheel
         mustStartSpinning={mustSpin}
         prizeNumber={prizeNumber}
@@ -20,6 +22,6 @@ export function Roulette() {
       />
 
       <button onClick={() => setMustSpin(true)}>Start</button>
-    </>
+    </Box>
   );
 }

@@ -1,6 +1,5 @@
 import { ChakraProvider, Stack } from '@chakra-ui/react';
 
-import './App.css';
 import { OptionsTable } from './components/options-table';
 import { Wheel } from './components/wheel';
 import { WheelContextProvider } from './context/wheel-context';

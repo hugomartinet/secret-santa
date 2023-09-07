@@ -1,12 +1,11 @@
 {
-  "name": "icebreaker-roulette",
+  "name": "wheel-of-chance",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://hugomartinet.github.io/icebreaker-roulette/",
+  "homepage": "https://hugomartinet.github.io/wheel-of-chance/",
   "scripts": {
     "start": "react-scripts start",
     "build": "BUILD_PATH='./_site' react-scripts build",
-    "deploy": "gh-pages -d _site",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -38,10 +37,6 @@
     "@chakra-ui/react": "^2.8.0",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.5.2",
     "@types/node": "^16.18.46",
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",

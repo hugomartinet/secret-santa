@@ -1,19 +1,15 @@
 import { ChakraProvider, Stack } from '@chakra-ui/react';
 
-import { OptionsTable } from './components/options-table';
 import { Wheel } from './components/wheel';
+import { options } from './const';
 import { WheelContextProvider } from './context/wheel-context';
-import { useWheelOptions } from './hooks/use-wheel-options';
 
 function App() {
-  const { options, addOption, removeOption } = useWheelOptions();
-
   return (
     <ChakraProvider>
       <WheelContextProvider>
         <Stack spacing={4} p={4} direction={{ base: 'column', lg: 'row' }} h={{ base: '100%', lg: '100vh' }}>
-          <Wheel options={options} />
-          <OptionsTable addOption={addOption} options={options} removeOption={removeOption} />
+          <Wheel options={options.map(option => option.label)} />
         </Stack>
       </WheelContextProvider>
     </ChakraProvider>

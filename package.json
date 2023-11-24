@@ -1,8 +1,8 @@
 {
-  "name": "wheel-of-chance",
+  "name": "secret-santa",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://hugomartinet.github.io/wheel-of-chance/",
+  "homepage": "https://hugomartinet.github.io/secret-santa/",
   "scripts": {
     "start": "react-scripts start",
     "build": "BUILD_PATH='./_site' react-scripts build",

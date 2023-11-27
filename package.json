@@ -2,10 +2,9 @@
   "name": "secret-santa",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://hugomartinet.github.io/secret-santa/",
   "scripts": {
     "start": "react-scripts start",
-    "build": "BUILD_PATH='./_site' react-scripts build",
+    "build": "rm -rf _site/ && BUILD_PATH='./_site' react-scripts build",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

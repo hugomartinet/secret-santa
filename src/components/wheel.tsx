@@ -1,4 +1,4 @@
-import { Button, Center, Text, useToken } from '@chakra-ui/react';
+import { Button, Center, useToken } from '@chakra-ui/react';
 import { useCallback, useState } from 'react';
 import { Wheel as ReactRoulette } from 'react-custom-roulette';
 
@@ -11,17 +11,7 @@ interface WheelProps {
 }
 
 export function Wheel({ options }: WheelProps) {
-  const colors = useToken('colors', [
-    'red.400',
-    'orange.400',
-    'yellow.400',
-    'green.400',
-    'teal.400',
-    'blue.400',
-    'cyan.400',
-    'purple.400',
-    'pink.400',
-  ]);
+  const colors = useToken('colors', ['#F5624D', '#CC231E', '#34A65F', '#0F8A5F', '#235E6F']);
 
   const { isSpinning, setIsSpinning, setResult } = useWheelContext();
   const [resultIndex, setResultIndex] = useState(0);
@@ -38,27 +28,23 @@ export function Wheel({ options }: WheelProps) {
   }, [setIsSpinning, options, resultIndex, setResult]);
 
   return (
-    <Center flex={1} flexDir="column">
-      {options.length > 0 ? (
-        <>
-          <ReactRoulette
-            mustStartSpinning={isSpinning}
-            prizeNumber={resultIndex}
-            data={options.map(option => ({ option }))}
-            onStopSpinning={onStopSpinning}
-            backgroundColors={colors}
-            outerBorderWidth={4}
-            radiusLineWidth={2}
-          />
-          <Button mt={{ base: 4, lg: 8 }} size="lg" onClick={onSpin} isDisabled={isSpinning}>
-            Spin that wheel!
-          </Button>
+    <>
+      <Center flex={1} flexDir="column" zIndex={2}>
+        <ReactRoulette
+          mustStartSpinning={isSpinning}
+          prizeNumber={resultIndex}
+          data={options.map(option => ({ option }))}
+          onStopSpinning={onStopSpinning}
+          backgroundColors={colors}
+          outerBorderWidth={4}
+          radiusLineWidth={2}
+        />
+        <Button mt={{ base: 4, lg: 8 }} size="lg" onClick={onSpin} isDisabled={isSpinning} colorScheme="red">
+          Lance la roue !
+        </Button>
+      </Center>
 
-          <Result />
-        </>
-      ) : (
-        <Text fontSize="xl">Add options in the list before spinning the wheel!</Text>
-      )}
-    </Center>
+      <Result />
+    </>
   );
 }

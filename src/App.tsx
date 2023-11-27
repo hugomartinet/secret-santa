@@ -1,9 +1,7 @@
-import { ChakraProvider, Stack } from '@chakra-ui/react';
+import { ChakraProvider } from '@chakra-ui/react';
 
 import { Background } from './components/background';
-import { Wheel } from './components/wheel';
-import { options } from './const';
-import { WheelContextProvider } from './context/wheel-context';
+import { GiftTime } from './components/gift-time';
 import { useBackgroundMusic } from './hooks/music';
 
 function App() {
@@ -12,11 +10,7 @@ function App() {
   return (
     <ChakraProvider>
       <Background />
-      <WheelContextProvider>
-        <Stack spacing={4} p={4} direction={{ base: 'column', lg: 'row' }} h={{ base: '100%', lg: '100vh' }}>
-          <Wheel options={options.map(option => option.label)} />
-        </Stack>
-      </WheelContextProvider>
+      <GiftTime />
     </ChakraProvider>
   );
 }

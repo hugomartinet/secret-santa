@@ -18,9 +18,9 @@ export function Wheel({ options }: WheelProps) {
 
   const onSpin = useCallback(() => {
     setResult(null);
-    setResultIndex(Math.floor(Math.random() * options.length));
+    setResultIndex(0);
     setIsSpinning(true);
-  }, [options, setResult, setIsSpinning]);
+  }, [setResult, setIsSpinning]);
 
   const onStopSpinning = useCallback(() => {
     setIsSpinning(false);
@@ -38,6 +38,7 @@ export function Wheel({ options }: WheelProps) {
           backgroundColors={colors}
           outerBorderWidth={4}
           radiusLineWidth={2}
+          fontSize={36}
         />
         <Button mt={{ base: 4, lg: 8 }} size="lg" onClick={onSpin} isDisabled={isSpinning} colorScheme="red">
           Lance la roue !

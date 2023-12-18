@@ -18,9 +18,9 @@ export function Wheel({ options }: WheelProps) {
 
   const onSpin = useCallback(() => {
     setResult(null);
-    setResultIndex(0);
+    setResultIndex(Math.min(Math.floor(Math.random() * options.length), options.length - 1));
     setIsSpinning(true);
-  }, [setResult, setIsSpinning]);
+  }, [options, setResult, setIsSpinning]);
 
   const onStopSpinning = useCallback(() => {
     setIsSpinning(false);

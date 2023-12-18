@@ -9,10 +9,12 @@ import { useWheelContext } from '../context/wheel-context';
 export function Result() {
   const { result } = useWheelContext();
 
+  const [showSubdescription, setShowSubdescription] = useState(false);
   const [showSanta, setShowSanta] = useState(false);
 
   useEffect(() => {
-    if (result) setTimeout(() => setShowSanta(true), 2000);
+    if (result) setTimeout(() => setShowSubdescription(true), 3000);
+    if (result) setTimeout(() => setShowSanta(true), 5000);
   }, [result]);
 
   return result ? (
@@ -37,6 +39,25 @@ export function Result() {
           {options.find(option => option.label === result)?.description}
         </Text>
       </Box>
+
+      {showSubdescription && (
+        <Box
+          position="absolute"
+          top="60%"
+          left="70%"
+          zIndex={3}
+          transform="rotate(-10deg) translate(-50%,-50%)"
+          padding={8}
+          bg="teal"
+          color="white"
+          shadow="lg"
+          textAlign="center"
+        >
+          <Text fontSize="3xl" fontWeight="bold">
+            {options.find(option => option.label === result)?.subdescription}
+          </Text>
+        </Box>
+      )}
     </>
   ) : null;
 }

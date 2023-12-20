@@ -13,7 +13,7 @@ interface WheelProps {
 export function Wheel({ options }: WheelProps) {
   const colors = useToken('colors', ['#F5624D', '#CC231E', '#34A65F', '#0F8A5F', '#235E6F']);
 
-  const { isSpinning, setIsSpinning, setResult } = useWheelContext();
+  const { isSpinning, setIsSpinning, result, setResult } = useWheelContext();
   const [resultIndex, setResultIndex] = useState(0);
 
   const onSpin = useCallback(() => {
@@ -45,7 +45,7 @@ export function Wheel({ options }: WheelProps) {
         </Button>
       </Center>
 
-      <Result />
+      {result && <Result />}
     </>
   );
 }
